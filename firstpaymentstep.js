@@ -253,14 +253,26 @@ for (i = 2; i < 8; i++){
 		  theSync = specId + ' .views-row-' + refRow + ' div span div input[type="checkbox"]';
 		  
 		  //alert(theSync);
-		  thisSpecInput = document.querySelector(theSync);  
+		  thisSpecInput = document.querySelector(theSync);
 
 			  //--->Tentative de récupération de l'id de produit
+			  /* Il y a potentiellement 2 champs
+				 si le premier est vide, 
+				 on prend le suivant
+			  */
+			  
 			  theIdProd = specId + ' .views-row-' + refRow + ' .views-field-field-id-de-produit .field-content';
-
-			  thisSpecId = document.querySelector(theIdProd);  
+			  thisSpecId = document.querySelector(theIdProd);
+			  
+			  if(thisSpecId === 0 || thisSpecId === '') {
+				  theIdProd = specId + ' .views-row-' + refRow + ' .views-field-field-long-id-du-produit .field-content';
+				  thisSpecId = document.querySelector(theIdProd);
+			  }
 			  //alert(thisSpecId);
-		  thisSpecInput.value = thisSpecId.innerHTML;
+			  if(thisSpecId) {
+				  thisSpecInput.value = thisSpecId.innerHTML;
+			  }
+			  
 		  
 		  if(i == 3) {
 			valueSpecInput = "product_id[" + item + "]";
