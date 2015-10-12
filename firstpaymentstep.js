@@ -264,10 +264,7 @@ for (i = 2; i < 8; i++){
 			  theIdProd = specId + ' .views-row-' + refRow + ' .views-field-field-id-de-produit .field-content';
 			  thisSpecId = document.querySelector(theIdProd);
 			  
-			  alert(thisSpecId.innerHTML);
-			  
 			  if(thisSpecId.innerHTML === 0 || thisSpecId.innerHTML == '') {
-				  alert('inside');
 				  theIdProd = specId + ' .views-row-' + refRow + ' .views-field-field-long-id-du-produit .field-content';
 				  thisSpecId = document.querySelector(theIdProd);
 			  }
